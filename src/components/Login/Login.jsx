@@ -5,6 +5,7 @@ import email_icon from '../Assets/email.png'
 import password_icon from '../Assets/password.png'
 
 
+
 export const Login = () => {
 
     const [email, setEmail] = useState("");
@@ -16,9 +17,12 @@ export const Login = () => {
         console.log({ email, password });
         setPassword("");
         setEmail("");
+        if(password!==""){
+            navigate("/DashBoard");
+        }
     };
 
-const gotoSignUpPage = () => navigate("../Signup/Signup");
+const gotoSignUpPage = () => navigate("/Signup");
   return (
     <div className='container'>
         <div className="header">
@@ -61,7 +65,7 @@ const gotoSignUpPage = () => navigate("../Signup/Signup");
         
         <div className="forgot-password">New User? <span>then Sign Up first!</span></div>
         <div className="submit-container">
-            <div className="submit gray" onClick={()=>navigate("../Signup/Signup")}>Sign Up</div>
+            <div className="submit gray" onClick={gotoSignUpPage}>Sign Up</div>
             <div className="submit" onClick={handleSubmit}>Login</div>
         </div>
     </div>

@@ -4,7 +4,7 @@ import './Signup.css'
 import user_icon from '../Assets/person.png'
 import email_icon from '../Assets/email.png'
 import password_icon from '../Assets/password.png'
-import call_icon from '../Assets/call.jpeg'
+import call_icon from '../Assets/mobile.png'
 
 
 export const Signup = () => {
@@ -22,8 +22,11 @@ export const Signup = () => {
         setTel("");
         setUsername("");
         setPassword("");
+        if(username!==""){
+            navigate("/phoneVerify");
+        }
     };
-    const gotoLoginPage = () => navigate("../Login/Login");
+    const gotoLoginPage = () => navigate("/");
   return (
     <div className='container'>
         <div className="header">
@@ -64,7 +67,7 @@ export const Signup = () => {
                 <img src={call_icon} alt=""/>
                 <input 
                     type="tel" 
-                    placeholder='Password'
+                    placeholder='mobile'
                     name='tel'
                     id='tel'
                     value={tel}
@@ -92,7 +95,7 @@ export const Signup = () => {
         
         <div className="submit-container">
             <div className="submit" onClick={handleSubmit}>Sign Up</div>
-            <div className="submit gray" onClick={()=>navigate("../Login/Login")}>Login</div>
+            <div className="submit gray" onClick={gotoLoginPage}>Login</div>
         </div>
     </div>
   )
